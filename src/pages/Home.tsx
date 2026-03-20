@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Zap } from 'lucide-react';
+import {
+  ArrowRight,
+  ArrowLeft,
+  ArrowRight as ArrowRightIcon,
+  Sparkles,
+  Zap,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ProductCard from '@/components/ProductCard';
 import { products } from '@/data/products';
@@ -16,15 +22,6 @@ const Home = () => {
     '/assets/suppliment banner img2.jpg',
     '/assets/suppliment bannerimg 3.jpg',
   ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) =>
-        prev === carouselImages.length - 1 ? 0 : prev + 1,
-      );
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [carouselImages.length]);
 
   return (
     <div className='min-h-screen'>
@@ -46,6 +43,30 @@ const Home = () => {
 
             {/* Overlay gradient */}
             <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent' />
+
+            {/* Navigation Arrows */}
+            <button
+              onClick={() =>
+                setCurrentImageIndex((prev) =>
+                  prev === 0 ? carouselImages.length - 1 : prev - 1,
+                )
+              }
+              className='absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full transition-colors'
+              aria-label='Previous image'
+            >
+              <ArrowLeft className='w-6 h-6' />
+            </button>
+            <button
+              onClick={() =>
+                setCurrentImageIndex((prev) =>
+                  prev === carouselImages.length - 1 ? 0 : prev + 1,
+                )
+              }
+              className='absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full transition-colors'
+              aria-label='Next image'
+            >
+              <ArrowRightIcon className='w-6 h-6' />
+            </button>
 
             {/* Hero Text */}
             <div className='absolute bottom-8 left-8 text-white max-w-2xl'>
