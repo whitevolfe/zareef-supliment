@@ -18,9 +18,11 @@ const Home = () => {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const carouselImages = [
-    '/assets/suppliment banner img.jpg',
-    '/assets/suppliment banner img2.jpg',
     '/assets/suppliment bannerimg 3.jpg',
+    '/assets/suppliment banner img4.jpg',
+    // '/assets/suppliment banner img.jpg',
+    '/assets/suppliment banner img5.jpg',
+    '/assets/suppliment banner img2.jpg',
   ];
 
   return (
@@ -29,7 +31,7 @@ const Home = () => {
       <section className='relative py-0 px-0'>
         <div className='relative w-full'>
           {/* Carousel */}
-          <div className='relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-2xl'>
+          <div className='relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden'>
             {carouselImages.map((image, index) => (
               <img
                 key={index}
