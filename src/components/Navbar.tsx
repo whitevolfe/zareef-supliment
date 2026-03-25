@@ -25,8 +25,9 @@ const Navbar = () => {
             <img
               src='/assets/FITLAB_LK_logo.png'
               alt='FITLAB-LK Logo'
-              className='h-10 w-auto'
+              className='h-14 w-20'
             />
+            <h2 className='text-3xl font-bold text-foreground'>LIFTLAB LK</h2>
           </Link>
 
           {/* Desktop Navigation */}
