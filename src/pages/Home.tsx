@@ -17,12 +17,40 @@ const Home = () => {
   const gym = products.filter((p) => p.category === 'gym').slice(0, 4);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const carouselImages = [
     '/assets/suppliment bannerimg 3.jpg',
     '/assets/suppliment banner img4.jpg',
     // '/assets/suppliment banner img.jpg',
     '/assets/suppliment banner img5.jpg',
     '/assets/suppliment banner img2.jpg',
+  ];
+
+  const testimonials = [
+    {
+      name: 'John Doe',
+      role: 'Fitness Enthusiast',
+      avatar: 'JD',
+      rating: 5,
+      text: "The quality of supplements here is unmatched! I've been using their whey protein for 3 months and have seen incredible results in my muscle growth and recovery time.",
+      color: 'primary',
+    },
+    {
+      name: 'Anna Smith',
+      role: 'Athlete',
+      avatar: 'AS',
+      rating: 5,
+      text: 'Excellent customer service and fast delivery! The pre-workout gives me the perfect energy boost without any jitters. Will definitely be a returning customer.',
+      color: 'secondary',
+    },
+    {
+      name: 'Mike Rodriguez',
+      role: 'Bodybuilder',
+      avatar: 'MR',
+      rating: 5,
+      text: "Best supplement store I've found! Their creatine monohydrate is pure and effective. My strength gains have been consistent since switching to their products.",
+      color: 'primary',
+    },
   ];
 
   useEffect(() => {
@@ -34,6 +62,16 @@ const Home = () => {
 
     return () => clearInterval(interval);
   }, [carouselImages.length]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonialIndex((prev) =>
+        prev === testimonials.length - 1 ? 0 : prev + 1,
+      );
+    }, 4000); // Change testimonial every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
 
   return (
     <div className='min-h-screen'>
@@ -228,81 +266,74 @@ const Home = () => {
             </p>
           </div>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            <div className='bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-shadow'>
-              <div className='flex items-center gap-4 mb-4'>
-                <div className='w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center'>
-                  <span className='text-primary font-bold text-lg'>JD</span>
-                </div>
-                <div>
-                  <h4 className='font-semibold text-foreground'>John Doe</h4>
-                  <p className='text-sm text-muted-foreground'>
-                    Fitness Enthusiast
-                  </p>
-                </div>
-              </div>
-              <div className='flex gap-1 mb-4'>
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className='text-yellow-500'>
-                    ★
-                  </span>
-                ))}
-              </div>
-              <p className='text-muted-foreground leading-relaxed'>
-                "The quality of supplements here is unmatched! I've been using
-                their whey protein for 3 months and have seen incredible results
-                in my muscle growth and recovery time."
-              </p>
-            </div>
+          <div className='max-w-6xl mx-auto'>
+            <div className='relative overflow-hidden'>
+              {/* Navigation Arrows */}
 
-            <div className='bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-shadow'>
-              <div className='flex items-center gap-4 mb-4'>
-                <div className='w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center'>
-                  <span className='text-secondary font-bold text-lg'>AS</span>
-                </div>
-                <div>
-                  <h4 className='font-semibold text-foreground'>Anna Smith</h4>
-                  <p className='text-sm text-muted-foreground'>Athlete</p>
-                </div>
-              </div>
-              <div className='flex gap-1 mb-4'>
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className='text-yellow-500'>
-                    ★
-                  </span>
-                ))}
-              </div>
-              <p className='text-muted-foreground leading-relaxed'>
-                "Excellent customer service and fast delivery! The pre-workout
-                gives me the perfect energy boost without any jitters. Will
-                definitely be a returning customer."
-              </p>
-            </div>
+              {/* Testimonial Cards */}
+              <div className='grid grid-cols-1 md:grid-cols-3 gap-8 px-4'>
+                {testimonials.map((testimonial, index) => {
+                  // Calculate position for 3-card layout
+                  const position =
+                    (index - currentTestimonialIndex + testimonials.length) %
+                    testimonials.length;
 
-            <div className='bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-shadow'>
-              <div className='flex items-center gap-4 mb-4'>
-                <div className='w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center'>
-                  <span className='text-primary font-bold text-lg'>MR</span>
-                </div>
-                <div>
-                  <h4 className='font-semibold text-foreground'>
-                    Mike Rodriguez
-                  </h4>
-                  <p className='text-sm text-muted-foreground'>Bodybuilder</p>
-                </div>
+                  return (
+                    <div
+                      key={index}
+                      className={`bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-all duration-1000 ${
+                        position === 0
+                          ? 'opacity-100 scale-100'
+                          : position === 1
+                            ? 'opacity-80 scale-95 translate-x-full'
+                            : 'opacity-60 scale-90 translate-x-full'
+                      }`}
+                    >
+                      <div className='flex items-center gap-4 mb-4'>
+                        <div className='w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center'>
+                          <span className='text-primary font-bold text-lg'>
+                            {testimonial.avatar}
+                          </span>
+                        </div>
+                        <div>
+                          <h4 className='font-semibold text-foreground'>
+                            {testimonial.name}
+                          </h4>
+                          <p className='text-sm text-muted-foreground'>
+                            {testimonial.role}
+                          </p>
+                        </div>
+                      </div>
+                      <div className='flex gap-1 mb-4'>
+                        {[...Array(5)].map((_, i) => (
+                          <span key={i} className='text-yellow-500'>
+                            ★
+                          </span>
+                        ))}
+                      </div>
+                      <p className='text-muted-foreground leading-relaxed text-sm'>
+                        "{testimonial.text}"
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
-              <div className='flex gap-1 mb-4'>
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className='text-yellow-500'>
-                    ★
-                  </span>
+
+              {/* Testimonial Indicators */}
+              <div className='flex justify-center gap-3 mt-8'>
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonialIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentTestimonialIndex
+                        ? 'bg-primary w-8'
+                        : 'bg-primary/30 hover:bg-primary/50'
+                    }`}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  />
                 ))}
               </div>
-              <p className='text-muted-foreground leading-relaxed'>
-                "Best supplement store I've found! Their creatine monohydrate is
-                pure and effective. My strength gains have been consistent since
-                switching to their products."
-              </p>
             </div>
           </div>
         </div>
