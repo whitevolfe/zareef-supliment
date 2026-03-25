@@ -175,6 +175,139 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Brand Titles Section */}
+      <section className='py-8 px-4 bg-gradient-to-r from-primary to-secondary'>
+        <div className='container mx-auto'>
+          <div className='relative overflow-hidden'>
+            <div className='flex gap-8 animate-scroll'>
+              <div className='flex-shrink-0 text-white text-2xl md:text-4xl font-bold whitespace-nowrap'>
+                LIFTLAB LK HEALTH & FITNESS STORE
+              </div>
+              <div className='flex-shrink-0 text-white text-2xl md:text-4xl font-bold whitespace-nowrap'>
+                LIFTLAB LK HEALTH & FITNESS STORE
+              </div>
+              <div className='flex-shrink-0 text-white text-2xl md:text-4xl font-bold whitespace-nowrap'>
+                LIFTLAB LK HEALTH & FITNESS STORE
+              </div>
+              <div className='flex-shrink-0 text-white text-2xl md:text-4xl font-bold whitespace-nowrap'>
+                LIFTLAB LK HEALTH & FITNESS STORE
+              </div>
+              <div className='flex-shrink-0 text-white text-2xl md:text-4xl font-bold whitespace-nowrap'>
+                LIFTLAB LK HEALTH & FITNESS STORE
+              </div>
+              {/* Duplicate for seamless loop */}
+              <div className='flex-shrink-0 text-white text-2xl md:text-4xl font-bold whitespace-nowrap'>
+                LIFTLAB LK HEALTH & FITNESS STORE
+              </div>
+              <div className='flex-shrink-0 text-white text-2xl md:text-4xl font-bold whitespace-nowrap'>
+                LIFTLAB LK HEALTH & FITNESS STORE
+              </div>
+              <div className='flex-shrink-0 text-white text-2xl md:text-4xl font-bold whitespace-nowrap'>
+                LIFTLAB LK HEALTH & FITNESS STORE
+              </div>
+              <div className='flex-shrink-0 text-white text-2xl md:text-4xl font-bold whitespace-nowrap'>
+                LIFTLAB LK HEALTH & FITNESS STORE
+              </div>
+              <div className='flex-shrink-0 text-white text-2xl md:text-4xl font-bold whitespace-nowrap'>
+                LIFTLAB LK HEALTH & FITNESS STORE
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className='py-16 px-4 bg-gradient-to-br from-muted/50 to-background'>
+        <div className='container mx-auto'>
+          <div className='text-center mb-12'>
+            <h2 className='text-3xl md:text-4xl font-bold text-foreground mb-4'>
+              What Our Customers Say
+            </h2>
+            <p className='text-muted-foreground text-lg'>
+              Real reviews from satisfied customers
+            </p>
+          </div>
+
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+            <div className='bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-shadow'>
+              <div className='flex items-center gap-4 mb-4'>
+                <div className='w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center'>
+                  <span className='text-primary font-bold text-lg'>JD</span>
+                </div>
+                <div>
+                  <h4 className='font-semibold text-foreground'>John Doe</h4>
+                  <p className='text-sm text-muted-foreground'>
+                    Fitness Enthusiast
+                  </p>
+                </div>
+              </div>
+              <div className='flex gap-1 mb-4'>
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className='text-yellow-500'>
+                    ★
+                  </span>
+                ))}
+              </div>
+              <p className='text-muted-foreground leading-relaxed'>
+                "The quality of supplements here is unmatched! I've been using
+                their whey protein for 3 months and have seen incredible results
+                in my muscle growth and recovery time."
+              </p>
+            </div>
+
+            <div className='bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-shadow'>
+              <div className='flex items-center gap-4 mb-4'>
+                <div className='w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center'>
+                  <span className='text-secondary font-bold text-lg'>AS</span>
+                </div>
+                <div>
+                  <h4 className='font-semibold text-foreground'>Anna Smith</h4>
+                  <p className='text-sm text-muted-foreground'>Athlete</p>
+                </div>
+              </div>
+              <div className='flex gap-1 mb-4'>
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className='text-yellow-500'>
+                    ★
+                  </span>
+                ))}
+              </div>
+              <p className='text-muted-foreground leading-relaxed'>
+                "Excellent customer service and fast delivery! The pre-workout
+                gives me the perfect energy boost without any jitters. Will
+                definitely be a returning customer."
+              </p>
+            </div>
+
+            <div className='bg-card rounded-xl p-6 shadow-lg border border-border hover:shadow-xl transition-shadow'>
+              <div className='flex items-center gap-4 mb-4'>
+                <div className='w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center'>
+                  <span className='text-primary font-bold text-lg'>MR</span>
+                </div>
+                <div>
+                  <h4 className='font-semibold text-foreground'>
+                    Mike Rodriguez
+                  </h4>
+                  <p className='text-sm text-muted-foreground'>Bodybuilder</p>
+                </div>
+              </div>
+              <div className='flex gap-1 mb-4'>
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className='text-yellow-500'>
+                    ★
+                  </span>
+                ))}
+              </div>
+              <p className='text-muted-foreground leading-relaxed'>
+                "Best supplement store I've found! Their creatine monohydrate is
+                pure and effective. My strength gains have been consistent since
+                switching to their products."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className='py-16 px-4'>
         <div className='container mx-auto'>
