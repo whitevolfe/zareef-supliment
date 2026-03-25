@@ -97,11 +97,11 @@ ${
   formData.paymentMethod === 'bank_deposit'
     ? `
 **Bank Details for Payment:**
-Account No: 8006827256
-Name: Zareef
+Account No: 8116023528
+Name: Mohamed zareef careem
 Bank: Commercial Bank
-Branch: colombo
-WhatsApp No: 0754836938
+Branch: raid evenue
+WhatsApp No: +94 76 728 9555
 `
     : ''
 }
