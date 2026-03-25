@@ -25,6 +25,16 @@ const Home = () => {
     '/assets/suppliment banner img2.jpg',
   ];
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) =>
+        prev === carouselImages.length - 1 ? 0 : prev + 1,
+      );
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [carouselImages.length]);
+
   return (
     <div className='min-h-screen'>
       {/* Hero Section */}
@@ -32,16 +42,23 @@ const Home = () => {
         <div className='relative w-full'>
           {/* Carousel */}
           <div className='relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden'>
-            {carouselImages.map((image, index) => (
-              <img
-                key={index}
-                src={image}
-                alt={`Hero ${index + 1}`}
-                className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ${
-                  index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-                }`}
-              />
-            ))}
+            {/* Moving background images */}
+            <div className='absolute inset-0'>
+              {carouselImages.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`Hero ${index + 1}`}
+                  className={`absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 ${
+                    index === currentImageIndex
+                      ? 'translate-x-0'
+                      : index < currentImageIndex
+                        ? '-translate-x-full'
+                        : 'translate-x-full'
+                  }`}
+                />
+              ))}
+            </div>
 
             {/* Overlay gradient */}
             <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent' />
