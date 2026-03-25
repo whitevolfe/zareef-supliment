@@ -27,7 +27,7 @@ const Navbar = () => {
               alt='FITLAB-LK Logo'
               className='h-14 w-20'
             />
-            <h2 className='text-2xl font-bold text-foreground'>LIFTLAB LK</h2>
+            <h2 className='text-2xl font-bold text-primary'>LIFTLAB LK</h2>
           </Link>
 
           {/* Desktop Navigation */}
