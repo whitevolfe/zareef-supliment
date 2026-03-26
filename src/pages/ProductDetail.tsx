@@ -60,19 +60,8 @@ const ProductDetail = () => {
       addToCart(product);
     }
 
-    // Create WhatsApp message
-    const orderDetails = `• ${product.name}\n  Qty: ${quantity}\n  Price: Rs. ${(product.price * quantity).toLocaleString()}`;
-    const totalAmount = product.price * quantity;
-    const message = `🛍️ *New Order from Zareef Supplemnet Shopping*\n\n${orderDetails}\n\n*Total Amount: Rs. ${totalAmount.toLocaleString()}*\n\nPlease confirm this order.`;
-
-    const whatsappUrl = `https://wa.me/94767289555?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-
-    toast({
-      title: 'Order sent!',
-      description:
-        'Your order has been sent via WhatsApp. We will confirm shortly.',
-    });
+    // Navigate to checkout page
+    navigate('/checkout');
   };
 
   const handleWhatsApp = () => {
