@@ -434,14 +434,7 @@ Please confirm this order and provide delivery timeline.`;
                     </div>
 
                     {formData.paymentMethod === 'bank_deposit' && (
-                      <div className='ml-6 p-4 bg-gray-50 rounded-lg text-sm'>
-                        <p className='font-semibold mb-2'>(SRI LANKA ONLY)</p>
-                        <p>Account No: 8006827256</p>
-                        <p>Name: Zareef</p>
-                        <p>Bank: Commercial Bank</p>
-                        <p>Branch: Colombo</p>
-                        <p>WhatsApp No: 0754836938</p>
-                      </div>
+                      <div className='ml-6 p-4 bg-gray-50 rounded-lg text-sm'></div>
                     )}
                   </div>
                 </RadioGroup>
