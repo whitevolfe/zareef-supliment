@@ -27,8 +27,8 @@ const Navbar = () => {
               alt='FITLAB-LK Logo'
               className='h-14 w-20'
             />
-            <h2 className='text-2xl font-bold text-primary'>LIFTLAB LK</h2>
-            <h2 className='text-2xl ml-10 font-bold text-primary'>
+            <h2 className='text-1xl font-bold text-primary'>LIFTLAB LK</h2>
+            <h2 className='text-1xl ml-10 font-bold text-primary'>
               <a
                 href='tel:0714550555'
                 target='_blank'
